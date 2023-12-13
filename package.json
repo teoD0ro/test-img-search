@@ -1,6 +1,7 @@
 {
+  "proxy": "http://localhost:3000",
   "homepage": "http://teoD0ro.github.io/test-img-search",
-  "name": "movies-front",
+  "name": "test-img-search",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
