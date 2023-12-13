@@ -1,0 +1,17 @@
+.header-search {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: white;
+    display: flex;
+    height: 104px;
+    padding: 40px 0 0 80px;
+}
+
+@media screen and (max-width: 768px) {
+    .header-search {
+        margin: auto;
+        padding: 10px 0 0 4vw;
+        height: 74px;
+    }
+}

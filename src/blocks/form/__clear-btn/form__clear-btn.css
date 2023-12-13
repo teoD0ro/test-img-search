@@ -1,0 +1,15 @@
+.form__clear-btn {
+    background: url(../../../images/Clear.svg);
+    background-size: cover;
+    border: none;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    position: absolute;
+    right: 12px;
+    top: 14px;
+}
+
+.form__clear-btn:hover {
+    opacity: 0.6;
+}

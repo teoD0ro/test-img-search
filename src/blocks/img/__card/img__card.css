@@ -1,0 +1,14 @@
+.img__card {
+    width: 204px;
+    height: 204px;
+    border: 1px solid rgba(235, 235, 235, 1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 768px) {
+    .img__card {
+        width: 30vw;
+        height: 30vw;
+    }
+}

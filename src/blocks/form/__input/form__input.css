@@ -1,0 +1,13 @@
+.form__input {
+    grid-area: input;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    background-color: rgba(238, 238, 238, 1);
+    width: 100%;
+    font-family: 'SFProDisplay', 'Arial', 'sans-serif';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19.09px;
+}

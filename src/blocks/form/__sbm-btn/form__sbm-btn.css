@@ -1,0 +1,20 @@
+.form__sbm-btn {
+    grid-area: btn;
+    cursor: pointer;
+    border: none;
+    background-color: rgba(235, 12, 12, 1);
+    color: white;
+    width: 82px;
+    height: 48px;
+    border-radius: 12px;
+    font-family: 'SFProDisplay', 'Arial', 'sans-serif';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19.09px;
+}
+
+.form__sbm-btn:hover {
+    background-color: rgba(195, 0, 0, 1);
+
+}

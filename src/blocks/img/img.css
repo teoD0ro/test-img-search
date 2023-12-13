@@ -1,0 +1,10 @@
+.img {
+    padding: 0 80px;
+}
+
+@media screen and (max-width: 768px) {
+    .img {
+        padding: 0 4vw;
+        margin: auto;
+    }
+}

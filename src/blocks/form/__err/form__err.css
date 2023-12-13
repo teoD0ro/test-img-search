@@ -1,0 +1,13 @@
+.form__err {
+    position: relative;
+    /* left: 35px; */
+    grid-area: err;
+    margin: 0;
+    height: 20px;
+    color: #EE3465;
+    font-family: 'SFProDisplay', 'Arial', 'sans-serif';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19.09px;
+}

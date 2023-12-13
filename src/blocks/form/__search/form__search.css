@@ -1,0 +1,18 @@
+.form__search {
+    position: relative;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    background-color: rgba(238, 238, 238, 1);
+    border-radius: 12px;
+    width: 420px;
+    height: 48px;
+    margin: 0 8px 0 0;
+    padding: 0 10px 0;
+}
+
+@media screen and (max-width: 768px) {
+    .form__search {
+        width: 69vw;
+    }
+  }
