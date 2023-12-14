@@ -3,6 +3,7 @@ import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 
 import Main from './Main';
 import Search from './Search';
+import NotFound from './NotFound';
 
 function App() {
   const [imgs, setImgs] = useState([]);
@@ -29,7 +30,8 @@ function App() {
         />}
       />
       <Route path="/*"
-        element={<h1>Not found</h1>}
+        element={<NotFound
+        />}
       />
     </Routes>
 
