@@ -6,3 +6,9 @@
     border-radius: 4px;
     overflow: hidden;
 }
+
+@media screen and (max-width: 768px) {
+    .img__card {
+        height: 29.5vw;
+    }
+}
