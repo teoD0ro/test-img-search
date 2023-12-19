@@ -5,12 +5,11 @@ import { useForm } from 'react-hook-form';
 import icon from '../images/serach.svg';
 
 function Form({ setFetching, setImgs, setPage, request }) {
+    const [isRequest, setIsRequest] = useState(false);
     useEffect(() => {
         if (request) {
-            setValue('img', request, {
-                shouldValidate: true,
-                shouldDirty: true
-            })
+            setValue('img', request);
+            setIsRequest(true)
         }
     }, []);
 
@@ -42,7 +41,7 @@ function Form({ setFetching, setImgs, setPage, request }) {
                 <input className="form__input" type="text" placeholder="Телефоны, яблоки, груши..." id="img" name="img" {...register('img', {
                     required: "Введите запрос."
                 })} />
-                {isDirty && <button className="form__clear-btn" type="button" onClick={() => resetField("img")} />}
+                {(isRequest || isDirty) && <button className="form__clear-btn" type="button" onClick={() => resetField("img")} />}
             </label>
             <label className="form__sbm">
                 <button className="form__sbm-btn" type="submit">Искать</button>
