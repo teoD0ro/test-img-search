@@ -21,6 +21,7 @@ class ImgApi {
 
     getMovies(request, page) {
         return this._request(`/search/photos?client_id=Ip0XA55zY7b7-d19osq1L5btGg-YCeDZVpnnJjXqHxs&query=${request}&page=${page}`, { headers: this._headers })
+        // return this._request(`/search/photos?client_id=Ip0XA55zY7b7-d19osq1L5btGg-YCeDZVpnnJjXqHxs&query=${request}&page=${page}`, { headers: this._headers })
     }
 }
 const imgApi = new ImgApi(imgApiOptions);

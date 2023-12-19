@@ -4,20 +4,28 @@ import { useForm } from 'react-hook-form';
 
 import icon from '../images/serach.svg';
 
-function Form({ setFetching, setImgs, setPage }) {
-    const { request } = useParams()
+function Form({ setFetching, setImgs, setPage, request }) {
+    useEffect(() => {
+        if (request) {
+            setValue('img', request, {
+                shouldValidate: true,
+                shouldDirty: true
+            })
+        }
+    }, []);
+
     const navigate = useNavigate();
     const {
         setValue,
         register,
         formState: {
-            errors
+            errors, isDirty
         },
         handleSubmit,
+        resetField,
+
     } = useForm({
-        defaultValues: {
-            img: request,
-        }
+        defaultValues: { img: '' }
     })
 
     function onSubmit({ img }) {
@@ -34,12 +42,11 @@ function Form({ setFetching, setImgs, setPage }) {
                 <input className="form__input" type="text" placeholder="Телефоны, яблоки, груши..." id="img" name="img" {...register('img', {
                     required: "Введите запрос."
                 })} />
-                <button className="form__clear-btn" type="button" onClick={() => setValue('img', '')} />
+                {isDirty && <button className="form__clear-btn" type="button" onClick={() => resetField("img")} />}
             </label>
             <label className="form__sbm">
                 <button className="form__sbm-btn" type="submit">Искать</button>
             </label>
-
             <span className="form__err">
                 {errors?.img && (errors?.img?.message || "Ошибка")}
             </span>

@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Suspense } from 'react'
 import { useParams } from "react-router-dom"
 
 import Form from './Form';
-import ImgCard from './ImgCard';
+import ImgSmall from './ImgSmall';
 import ImgApi from '../utils/ImgApi';
 import ImagePopup from './ImgPopup';
+const ImgCard = React.lazy(() => import('./ImgCard'));
+
 
 
 function Search({ setImgs, setPage, setFetching, fetching, page, imgs }) {
@@ -19,8 +21,9 @@ function Search({ setImgs, setPage, setFetching, fetching, page, imgs }) {
         }
     }, []);
     useEffect(() => {
-        if (page < 10 && !isEmpty) {
+        if (page < 5 && !isEmpty && document.body.clientHeight - document.documentElement.clientHeight <= 100) {
             imgFetch()
+            console.log(document.body.clientHeight - document.documentElement.clientHeight)
         }
     }, [page]);
     useEffect(() => {
@@ -41,6 +44,7 @@ function Search({ setImgs, setPage, setFetching, fetching, page, imgs }) {
                 setTotal(img.total)
                 setImgs([...imgs, ...img.results])
                 setPage(page + 1)
+                console.log(img)
             })
             .catch((err) => {
                 console.error(`Ошибка: ${err}`);
@@ -54,10 +58,15 @@ function Search({ setImgs, setPage, setFetching, fetching, page, imgs }) {
         setSelectedCard({})
     }
     const imgElements = imgs.map(img => {
-        return <ImgCard
+        return <Suspense fallback={<ImgSmall
             img={img}
             onCardClick={setSelectedCard}
-        ></ImgCard>
+        ></ImgSmall>}>
+            <ImgCard
+                img={img}
+                onCardClick={setSelectedCard}
+            ></ImgCard>
+        </Suspense >
     })
 
     return (
@@ -68,6 +77,7 @@ function Search({ setImgs, setPage, setFetching, fetching, page, imgs }) {
                         setFetching={setFetching}
                         setImgs={setImgs}
                         setPage={setPage}
+                        request={request}
                     ></Form>
                 </header>
                 <section className='img'>
