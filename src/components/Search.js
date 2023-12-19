@@ -1,11 +1,11 @@
-import React, { useState, useEffect, Suspense } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useParams } from "react-router-dom"
 
 import Form from './Form';
-import ImgSmall from './ImgSmall';
 import ImgApi from '../utils/ImgApi';
 import ImagePopup from './ImgPopup';
-const ImgCard = React.lazy(() => import('./ImgCard'));
+import ImgCard from './ImgCard';
+
 
 
 
@@ -58,15 +58,10 @@ function Search({ setImgs, setPage, setFetching, fetching, page, imgs }) {
         setSelectedCard({})
     }
     const imgElements = imgs.map(img => {
-        return <Suspense fallback={<ImgSmall
+        return <ImgCard
             img={img}
             onCardClick={setSelectedCard}
-        ></ImgSmall>}>
-            <ImgCard
-                img={img}
-                onCardClick={setSelectedCard}
-            ></ImgCard>
-        </Suspense >
+        ></ImgCard>
     })
 
     return (

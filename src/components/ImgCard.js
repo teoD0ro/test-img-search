@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { Suspense } from 'react'
+const Image = React.lazy(() => import('./ImgFull'));
 
 function ImgCard({ img, onCardClick }) {
 
@@ -8,7 +9,12 @@ function ImgCard({ img, onCardClick }) {
 
     return (
         <li className="img__card">
-            <img className="img__photo" src={img.urls.regular} alt="img" data-type onClick={handleClick} />
+            <Suspense fallback={<img className="img__photo" src={img.urls.thumb} alt="img" data-type onClick={onCardClick} />}>
+                <Image
+                    img={img}
+                    onCardClick={handleClick}
+                />
+            </Suspense>
         </li>
     );
 }
